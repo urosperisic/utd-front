@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.error {
+  color: red;
+}
+
+nav {
+  background: #222;
+  color: white;
+  padding: 1rem;
+}
+
+a {
+  color: white;
+  margin-right: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+form input,
+form select,
+form button {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 767px) {
+  a {
+    margin-right: 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  td,
+  th {
+    font-size: 0.7rem;
+    padding: 0.1rem;
+  }
+}
