@@ -63,7 +63,15 @@
             />
             <button type="button" @click="removeScorer(index)">Remove</button>
           </div>
-          <button type="button" @click="addScorer">Add Scorer</button>
+          <button
+            type="button"
+            @click="addScorer"
+            class="add-scorer-btn"
+            aria-label="Add scorer"
+            title="Add scorer"
+          >
+            <i class="fa-solid fa-plus"></i>
+          </button>
         </fieldset>
         <br />
 
@@ -78,10 +86,10 @@
       <thead>
         <tr>
           <th>Date</th>
-          <th>Opponent</th>
-          <th>Home/Away</th>
+          <th>Opp</th>
+          <th>H/A</th>
           <th>Result</th>
-          <th>Goals Scored</th>
+          <th>Scorrers</th>
           <th v-if="auth.isAdmin()">Actions</th>
         </tr>
       </thead>

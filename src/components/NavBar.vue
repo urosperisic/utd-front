@@ -1,49 +1,64 @@
 <template>
   <nav>
-    <a
+    <router-link
       v-if="!auth.isAuthenticated()"
-      href="#"
-      @click.prevent="$router.push('/login')"
-      >Login</a
+      to="/login"
+      class="nav-link"
+      active-class="active-link"
     >
-    <a
+      Login
+    </router-link>
+
+    <router-link
       v-if="!auth.isAuthenticated()"
-      href="#"
-      @click.prevent="$router.push('/signup')"
-      >Signup</a
+      to="/signup"
+      class="nav-link"
+      active-class="active-link"
     >
+      Signup
+    </router-link>
 
     <template v-if="auth.isAuthenticated()">
-      <a href="#" @click.prevent="$router.push('/home')">Home</a>
-      <a href="#" @click.prevent="$router.push('/players')">Players</a>
-      <a href="#" @click.prevent="$router.push('/matches')">Matches</a>
-      <a href="#" @click.prevent="$router.push('/profile')">Profile</a>
-      <a
-        v-if="auth.isAuthenticated() && auth.isAdmin()"
-        href="#"
-        @click.prevent="$router.push('/users')"
-        >Manage Users</a
+      <router-link to="/home" class="nav-link" active-class="active-link"
+        >Home</router-link
       >
-      <a href="#" @click.prevent="logout">Logout</a>
+      <router-link to="/players" class="nav-link" active-class="active-link"
+        >Players</router-link
+      >
+      <router-link to="/matches" class="nav-link" active-class="active-link"
+        >Matches</router-link
+      >
+      <router-link to="/profile" class="nav-link" active-class="active-link"
+        >Profile</router-link
+      >
+      <router-link
+        v-if="auth.isAdmin()"
+        to="/users"
+        class="nav-link"
+        active-class="active-link"
+      >
+        Manage Users
+      </router-link>
+      <a href="#" @click.prevent="logout" class="nav-link">Logout</a>
     </template>
   </nav>
 </template>
 
 <script>
 import { useAuth } from "../stores/authStore";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
     const auth = useAuth();
+    const router = useRouter();
 
     function logout() {
       auth.clear();
-      window.location.href = "/login";
+      router.push("/login");
     }
 
     return { auth, logout };
   },
 };
 </script>
-
-<style scoped></style>
