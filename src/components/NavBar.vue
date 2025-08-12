@@ -37,7 +37,7 @@
         class="nav-link"
         active-class="active-link"
       >
-        Manage Users
+        Manage
       </router-link>
       <a href="#" @click.prevent="logout" class="nav-link">Logout</a>
     </template>

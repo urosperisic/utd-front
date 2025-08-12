@@ -49,9 +49,9 @@
     <table border="1" cellpadding="5" cellspacing="0">
       <thead>
         <tr>
-          <th>Shirt Number</th>
-          <th>First Name</th>
-          <th>Last Name</th>
+          <th>N</th>
+          <th>F Name</th>
+          <th>L Name</th>
           <th>Position</th>
           <th>Goals</th>
           <th v-if="auth.isAdmin()">Actions</th>
